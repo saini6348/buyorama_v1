@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { ApiBrand } from "@/lib/types";
-import { brandAccent, brandGlyph } from "@/lib/api";
+import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
 export default function PopularStores({ brands }: { brands: ApiBrand[] }) {
   return (
