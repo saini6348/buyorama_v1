@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BrandTabs from "@/components/BrandTabs";
 import Reveal from "@/components/Reveal";
-import { brandAccent, brandGlyph, getBrandDetail, getBrands } from "@/lib/api";
+import { getBrandDetail, getBrands } from "@/lib/api";
+import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
 export const dynamicParams = false;
 

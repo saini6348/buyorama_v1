@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ApiBrand } from "@/lib/types";
-import { brandAccent, brandGlyph } from "@/lib/api";
+import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
 export default function Hero({ brands }: { brands: ApiBrand[] }) {
   return (

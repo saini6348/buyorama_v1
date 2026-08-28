@@ -3,7 +3,7 @@
 import { useState } from "react";
 import CouponCard from "@/components/CouponCard";
 import { ApiCoupon, ApiFeed } from "@/lib/types";
-import { brandAccent, brandGlyph, timeAgo } from "@/lib/api";
+import { brandAccent, brandGlyph, timeAgo } from "@/lib/brand-display";
 
 type Tab = "feeds" | "coupons";
 

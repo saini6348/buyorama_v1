@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ApiCoupon } from "@/lib/types";
-import { brandAccent, brandGlyph, timeAgo } from "@/lib/api";
+import { brandAccent, brandGlyph, timeAgo } from "@/lib/brand-display";
 
 export default function CouponCard({ coupon, tilt = -2 }: { coupon: ApiCoupon; tilt?: number }) {
   const brand = coupon.brand;

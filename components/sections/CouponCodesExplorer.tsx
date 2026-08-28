@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import CouponCard from "@/components/CouponCard";
 import Reveal from "@/components/Reveal";
 import { ApiBrand, ApiCoupon } from "@/lib/types";
-import { brandGlyph } from "@/lib/api";
+import { brandGlyph } from "@/lib/brand-display";
 
 export default function CouponCodesExplorer({ brands, coupons }: { brands: ApiBrand[]; coupons: ApiCoupon[] }) {
   const [active, setActive] = useState<string>("all");
