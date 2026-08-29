@@ -1,10 +1,7 @@
 import { ApiBrand, ApiCard, ApiCoupon, ApiFeed, CardSettings } from "./types";
-
 const API_URL = process.env.NEXT_PUBLIC_BUYORAMA_API_URL ?? "";
 const API_KEY = process.env.BUYORAMA_API_KEY ?? "";
-
 type Envelope<T> = { success: boolean; data: T; error?: { code: string; message: string } };
-
 async function post<T>(path: string, body: Record<string, unknown> = {}): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
     method: "POST",
