@@ -9,12 +9,8 @@ import { brandAccent, brandGlyph } from "@/lib/brand-display";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  try {
-    const brands = await getBrands();
-    return brands.map((b) => ({ slug: b.slug }));
-  } catch {
-    return [];
-  }
+  const brands = await getBrands();
+  return brands.map((b) => ({ slug: b.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
