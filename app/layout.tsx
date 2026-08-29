@@ -8,6 +8,8 @@ import Ticker from "@/components/Ticker";
 import { getBrands } from "@/lib/api";
 import { ApiBrand } from "@/lib/types";
 
+export const revalidate = 60;
+
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-bricolage",
