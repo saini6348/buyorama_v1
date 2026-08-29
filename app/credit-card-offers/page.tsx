@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Cashback, travel, lifetime free, fuel & RuPay credit cards — compare and pick your plastic.",
 };
 
+export const revalidate = 60;
+
 export default async function CreditCardOffersPage() {
   const [cards, settings] = await Promise.all([getCards({ limit: 200 }), getCardSettings()]);
 

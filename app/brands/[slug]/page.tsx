@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import { getBrandDetail, getBrands } from "@/lib/api";
 import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
-export const dynamicParams = false;
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const brands = await getBrands();

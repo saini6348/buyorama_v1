@@ -6,6 +6,8 @@ import CardOffers from "@/components/sections/CardOffers";
 import Newsletter from "@/components/sections/Newsletter";
 import { getBrands, getCards, getCoupons } from "@/lib/api";
 
+export const revalidate = 60;
+
 export default async function HomePage() {
   const [brands, featured, latest, cards] = await Promise.all([
     getBrands(),
