@@ -12,14 +12,13 @@ export const metadata: Metadata = {
   description:
     "Every mega sale event tracked by BUY-O-RAMA — Big Billion Days, Great Indian Festival and more, all in one place.",
 };
-
 export default async function SaleEventsPage() {
   let events: ApiSalesEvent[] = [];
   try {
     events = await getSalesEvents();
   } catch {
     events = [];
-  }
+  } 
 
   return (
     <>
