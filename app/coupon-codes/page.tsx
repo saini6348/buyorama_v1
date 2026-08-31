@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CouponCodesExplorer from "@/components/sections/CouponCodesExplorer";
-import { getBrands, getCoupons } from "@/lib/api";
+import { getCoupons } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Coupon Codes — BUY-O-RAMA",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function CouponCodesPage() {
-  const [brands, coupons] = await Promise.all([getBrands(), getCoupons({ limit: 200 })]);
+  const coupons = await getCoupons({ limit: 200 });
 
   return (
     <>
@@ -30,7 +30,7 @@ export default async function CouponCodesPage() {
         </div>
         <div className="zigzag" />
       </section>
-      <CouponCodesExplorer brands={brands} coupons={coupons} />
+      <CouponCodesExplorer coupons={coupons} />
     </>
   );
 }

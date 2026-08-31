@@ -12,6 +12,34 @@ export default function Hero({ brands }: { brands: ApiBrand[] }) {
         ✂️
       </div>
 
+      {/* floating shopping icons */}
+      <div className="pointer-events-none absolute left-6 top-1/2 hidden size-16 place-items-center rounded-2xl border-[3px] border-cyan-pop/50 bg-grape/40 text-2xl animate-(--animate-wiggle-loop) sm:grid">
+        🛒
+      </div>
+      <div className="pointer-events-none absolute right-20 top-6 hidden size-14 rotate-6 place-items-center rounded-full border-[3px] border-punk/40 bg-grape/40 text-xl animate-(--animate-sway) md:grid">
+        📱
+      </div>
+      <div className="pointer-events-none absolute -left-4 bottom-20 hidden size-20 place-items-center rounded-2xl border-[3px] border-volt/40 bg-grape/40 text-2xl animate-(--animate-spin-slow-reverse) md:grid">
+        🛍️
+      </div>
+      <div className="pointer-events-none absolute right-4 bottom-8 hidden size-16 place-items-center rounded-full border-[3px] border-acid/40 bg-grape/40 text-xl animate-(--animate-bob) [animation-delay:0.6s] sm:grid">
+        🏷️
+      </div>
+
+      {/* floating shopping icons — clustered nearer the title */}
+      <div className="pointer-events-none absolute left-[6%] top-28 hidden -rotate-6 size-14 place-items-center rounded-2xl border-[3px] border-cyan-pop/40 bg-grape/40 text-xl animate-(--animate-bob) [animation-delay:0.9s] lg:grid">
+        🗄️
+      </div>
+      <div className="pointer-events-none absolute right-[4%] top-36 hidden rotate-6 size-16 place-items-center rounded-full border-[3px] border-punk/40 bg-grape/40 text-2xl animate-(--animate-sway) [animation-delay:0.4s] lg:grid">
+        📺
+      </div>
+      <div className="pointer-events-none absolute left-[11%] top-64 hidden rotate-3 size-14 place-items-center rounded-2xl border-[3px] border-volt/40 bg-grape/40 text-xl animate-(--animate-spin-slow-reverse) lg:grid">
+        📚
+      </div>
+      <div className="pointer-events-none absolute right-[10%] top-52 hidden -rotate-6 size-14 place-items-center rounded-full border-[3px] border-acid/40 bg-grape/40 text-xl animate-(--animate-wiggle-loop) [animation-delay:0.3s] lg:grid">
+        👗
+      </div>
+
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-20 text-center md:pt-28">
         <span className="inline-block -rotate-2 rounded-lg border-[3px] border-ink bg-acid px-4 py-1.5 font-display text-sm font-black uppercase tracking-widest text-ink shadow-pop-sm">
           🔥 New · Up to 60% OFF

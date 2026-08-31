@@ -3,50 +3,26 @@
 import { useMemo, useState } from "react";
 import CouponCard from "@/components/CouponCard";
 import Reveal from "@/components/Reveal";
-import { ApiBrand, ApiCoupon } from "@/lib/types";
-import { brandGlyph } from "@/lib/brand-display";
+import { ApiCoupon } from "@/lib/types";
 
-export default function CouponCodesExplorer({ brands, coupons }: { brands: ApiBrand[]; coupons: ApiCoupon[] }) {
-  const [active, setActive] = useState<string>("all");
+export default function CouponCodesExplorer({ coupons }: { coupons: ApiCoupon[] }) {
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
-    let list = active === "all" ? coupons : coupons.filter((c) => c.brand?.slug === active);
     const q = query.trim().toLowerCase();
-    if (q) {
-      list = list.filter(
-        (c) =>
-          c.title.toLowerCase().includes(q) ||
-          c.description.toLowerCase().includes(q) ||
-          (c.brand?.name.toLowerCase().includes(q) ?? false)
-      );
-    }
-    return list;
-  }, [active, query, coupons]);
+    if (!q) return coupons;
+    return coupons.filter(
+      (c) =>
+        c.title.toLowerCase().includes(q) ||
+        c.description.toLowerCase().includes(q) ||
+        (c.brand?.name.toLowerCase().includes(q) ?? false)
+    );
+  }, [query, coupons]);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12">
-      {/* store filter pills */}
-      <div className="flex flex-wrap items-center gap-3">
-        <button
-          onClick={() => setActive("all")}
-          className={`btn-punk border-ink !py-2 !text-xs ${active === "all" ? "bg-punk text-white" : "bg-white text-ink"}`}
-        >
-          All Stores
-        </button>
-        {brands.map((b) => (
-          <button
-            key={b.slug}
-            onClick={() => setActive(b.slug)}
-            className={`btn-punk border-ink !py-2 !text-xs ${active === b.slug ? "bg-punk text-white" : "bg-white text-ink"}`}
-          >
-            <span aria-hidden>{brandGlyph(b.name)}</span> {b.name}
-          </button>
-        ))}
-      </div>
-
       {/* search */}
-      <div className="mt-6 flex max-w-xl gap-2">
+      <div className="flex max-w-xl gap-2">
         <input
           type="search"
           value={query}
@@ -54,12 +30,9 @@ export default function CouponCodesExplorer({ brands, coupons }: { brands: ApiBr
           placeholder="Search coupons…"
           className="w-full rounded-xl border-[3px] border-ink bg-white px-4 py-2.5 font-semibold text-ink shadow-pop-sm outline-none placeholder:text-ink/40 focus:border-punk"
         />
-        {(query || active !== "all") && (
+        {query && (
           <button
-            onClick={() => {
-              setQuery("");
-              setActive("all");
-            }}
+            onClick={() => setQuery("")}
             className="btn-punk border-ink bg-volt text-ink !px-4 !py-2 !text-xs"
           >
             Reset ✕

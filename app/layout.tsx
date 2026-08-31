@@ -25,10 +25,6 @@ export const metadata: Metadata = {
     "India's funkiest deals hub: coupons, credit card offers and sale events — updated all day, every day.",
 };
 
-const themeInit = `
-(function(){try{var t=localStorage.getItem('buyorama-theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})();
-`;
-
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   let brands: ApiBrand[] = [];
   try {
@@ -38,10 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   }
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
-      </head>
+    <html lang="en" className="dark">
       <body className={`${bricolage.variable} ${jakarta.variable}`}>
         <Header brands={brands} />
         <Ticker brands={brands} />
