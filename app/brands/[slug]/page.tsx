@@ -4,13 +4,18 @@ import { notFound } from "next/navigation";
 import BrandTabs from "@/components/BrandTabs";
 import Reveal from "@/components/Reveal";
 import { getBrandDetail, getBrands } from "@/lib/api";
+import { ApiBrand } from "@/lib/types";
 import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const brands = await getBrands();
-  return brands.map((b) => ({ slug: b.slug }));
+  try {
+    const brands = await getBrands();
+    return brands.map((b) => ({ slug: b.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -36,7 +41,12 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
     notFound();
   }
   const { brand, coupons, feeds } = detail;
-  const allBrands = await getBrands();
+  let allBrands: ApiBrand[] = [];
+  try {
+    allBrands = await getBrands();
+  } catch {
+    allBrands = [];
+  }
   const others = allBrands.filter((b) => b.slug !== brand.slug);
   const accent = brandAccent(brand.slug);
 

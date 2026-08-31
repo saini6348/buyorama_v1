@@ -8,8 +8,12 @@ import { brandAccent, brandGlyph, timeAgo } from "@/lib/brand-display";
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const events = await getSalesEvents();
-  return events.map((e) => ({ slug: e.slug }));
+  try {
+    const events = await getSalesEvents();
+    return events.map((e) => ({ slug: e.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import CardOffersExplorer from "@/components/sections/CardOffersExplorer";
 import { getCardSettings, getCards } from "@/lib/api";
+import { ApiCard, CardSettings } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Credit Card Offers — BUY-O-RAMA",
@@ -11,7 +12,14 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function CreditCardOffersPage() {
-  const [cards, settings] = await Promise.all([getCards({ limit: 200 }), getCardSettings()]);
+  let cards: ApiCard[] = [];
+  let settings: CardSettings = { tags: [], categories: [], banks: [] };
+  try {
+    [cards, settings] = await Promise.all([getCards({ limit: 200 }), getCardSettings()]);
+  } catch {
+    cards = [];
+    settings = { tags: [], categories: [], banks: [] };
+  }
 
   return (
     <>

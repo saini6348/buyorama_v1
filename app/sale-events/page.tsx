@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { getSalesEvents } from "@/lib/api";
+import { ApiSalesEvent } from "@/lib/types";
 import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
 export const revalidate = 60;
@@ -13,7 +14,12 @@ export const metadata: Metadata = {
 };
 
 export default async function SaleEventsPage() {
-  let events = await getSalesEvents();
+  let events: ApiSalesEvent[] = [];
+  try {
+    events = await getSalesEvents();
+  } catch {
+    events = [];
+  }
 
   return (
     <>

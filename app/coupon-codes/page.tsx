@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CouponCodesExplorer from "@/components/sections/CouponCodesExplorer";
 import { getCoupons } from "@/lib/api";
+import { ApiCoupon } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Coupon Codes — BUY-O-RAMA",
@@ -10,7 +11,12 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function CouponCodesPage() {
-  const coupons = await getCoupons({ limit: 200 });
+  let coupons: ApiCoupon[] = [];
+  try {
+    coupons = await getCoupons({ limit: 200 });
+  } catch {
+    coupons = [];
+  }
 
   return (
     <>
