@@ -6,18 +6,6 @@ import { ApiBrand } from "@/lib/types";
 
 export default function Header({ brands }: { brands: ApiBrand[] }) {
   const [open, setOpen] = useState<string | null>(null);
-  const [dark, setDark] = useState<boolean | null>(null);
-
-  const isDark = dark ?? (typeof document !== "undefined" ? document.documentElement.classList.contains("dark") : true);
-
-  const toggleTheme = () => {
-    const next = !isDark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    try {
-      localStorage.setItem("buyorama-theme", next ? "dark" : "light");
-    } catch {}
-  };
 
   const nav = [
     { label: "Stores", href: "/stores", children: brands.slice(0, 6).map((b) => ({ label: b.name, href: `/brands/${b.slug}` })) },
@@ -79,13 +67,6 @@ export default function Header({ brands }: { brands: ApiBrand[] }) {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="grid size-10 place-items-center rounded-xl border-[3px] border-ink bg-acid text-ink shadow-pop-sm transition-transform hover:animate-wiggle"
-          >
-            {isDark ? "☀️" : "🌙"}
-          </button>
           <Link
             href="/coupon-codes"
             className="btn-punk hidden border-ink bg-punk text-white !shadow-none hover:shadow-none md:inline-flex !py-2"
