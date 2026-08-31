@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ApiBrand } from "@/lib/types";
+import { ApiBrand, ApiSalesEvent } from "@/lib/types";
 
-export default function Footer({ brands }: { brands: ApiBrand[] }) {
+export default function Footer({ brands, salesEvents }: { brands: ApiBrand[]; salesEvents: ApiSalesEvent[] }) {
   const cols = [
     { title: "Stores", links: brands.slice(0, 6).map((b) => ({ label: b.name, href: `/brands/${b.slug}` })) },
     {
@@ -13,15 +13,7 @@ export default function Footer({ brands }: { brands: ApiBrand[] }) {
         { label: "Airport Lounge", href: "/credit-card-offers?f=airport-lounge-credit-cards" },
       ],
     },
-    {
-      title: "Sale Events",
-      links: [
-        { label: "Big Billion Days", href: "/sale-events/big-billion-days" },
-        { label: "Prime Day", href: "/sale-events/prime-day" },
-        { label: "Great Indian Festival", href: "/sale-events/great-indian-festival" },
-        { label: "GOAT Sale", href: "/sale-events/goat" },
-      ],
-    },
+    { title: "Sale Events", links: salesEvents.map((e) => ({ label: e.title, href: `/sale-events/${e.slug}` })) },
   ];
 
   return (

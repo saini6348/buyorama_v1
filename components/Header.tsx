@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ApiBrand } from "@/lib/types";
+import { ApiBrand, ApiSalesEvent } from "@/lib/types";
 
-export default function Header({ brands }: { brands: ApiBrand[] }) {
+export default function Header({ brands, salesEvents }: { brands: ApiBrand[]; salesEvents: ApiSalesEvent[] }) {
   const [open, setOpen] = useState<string | null>(null);
 
   const nav = [
@@ -23,12 +23,9 @@ export default function Header({ brands }: { brands: ApiBrand[] }) {
     {
       label: "Sale Events",
       href: "/sale-events",
-      children: [
-        { label: "Big Billion Days", href: "/sale-events/big-billion-days" },
-        { label: "Prime Day", href: "/sale-events/prime-day" },
-        { label: "Great Indian Festival", href: "/sale-events/great-indian-festival" },
-        { label: "GOAT Sale", href: "/sale-events/goat" },
-      ],
+      children: salesEvents.length
+        ? salesEvents.slice(0, 8).map((e) => ({ label: e.title, href: `/sale-events/${e.slug}` }))
+        : undefined,
     },
   ];
 

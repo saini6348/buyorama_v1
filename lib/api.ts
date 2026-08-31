@@ -1,9 +1,12 @@
-import { ApiBrand, ApiCard, ApiCoupon, ApiFeed, CardSettings } from "./types";
+import { ApiBrand, ApiCard, ApiCoupon, ApiFeed, ApiSalesEvent, ApiSalesEventFeed, CardSettings } from "./types";
+// NEXT_PUBLIC_BUYORAMA_API_URL is the WordPress install root (e.g. http://localhost/buyorama).
+// The Buyorama plugin exposes its endpoints under /wp-json/api/v1.
 const API_URL = process.env.NEXT_PUBLIC_BUYORAMA_API_URL ?? "";
+const API_BASE = "/wp-json/api/v1";
 const API_KEY = process.env.BUYORAMA_API_KEY ?? "";
 type Envelope<T> = { success: boolean; data: T; error?: { code: string; message: string } };
 async function post<T>(path: string, body: Record<string, unknown> = {}): Promise<T> {
-  const res = await fetch(`${API_URL}${path}`, {
+  const res = await fetch(`${API_URL}${API_BASE}${path}`, {
     method: "POST",
     headers: { "Content-Type": "application/json", "X-Buyorama-Key": API_KEY },
     body: JSON.stringify(body),
@@ -30,3 +33,6 @@ export const getFeeds = (opts: { brand_slug?: string; limit?: number } = {}) => 
 export const getCards = (opts: { bank_slugs?: string[]; category_slugs?: string[]; tag_slugs?: string[]; limit?: number } = {}) =>
   post<ApiCard[]>("/cards", opts);
 export const getCardSettings = () => post<CardSettings>("/card-settings", {});
+export const getSalesEvents = () => post<ApiSalesEvent[]>("/sales-events", {});
+export const getSalesEventDetail = (slug: string) =>
+  post<{ event: ApiSalesEvent; feeds: ApiSalesEventFeed[] }>("/sales-events/detail", { slug });
