@@ -44,3 +44,18 @@ export type CardSettings = {
   categories: SettingRef[];
   banks: SettingRef[];
 };
+
+export type ApiSalesEvent = {
+  title: string;
+  slug: string;
+  status: string;
+  feed_count: number;
+};
+
+export type ApiSalesEventFeed = {
+  title: string;
+  slug: string;
+  description: string;
+  image_url: string;
+  added_at: string;
+};
