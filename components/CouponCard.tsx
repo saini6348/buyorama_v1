@@ -7,7 +7,6 @@ import { brandAccent, brandGlyph, timeAgo } from "@/lib/brand-display";
 export default function CouponCard({ coupon, tilt = -2 }: { coupon: ApiCoupon; tilt?: number }) {
   const brand = coupon.brand;
   const accent = brand ? brandAccent(brand.slug) : "#a7aaad";
-
   return (
     <div
       className="sticker group relative flex flex-col p-5 transition-transform duration-200 hover:rotate-0 hover:scale-[1.03] hover:shadow-pop-pink"
@@ -23,7 +22,7 @@ export default function CouponCard({ coupon, tilt = -2 }: { coupon: ApiCoupon; t
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={coupon.image_url} alt={coupon.title} className="block h-auto w-full" />
         </div>
-      )}
+      )} 
       <div className="mb-2 flex items-center gap-2">
         <span
           className="grid size-9 place-items-center overflow-hidden rounded-lg border-2 border-ink text-lg"
