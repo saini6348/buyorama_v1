@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-punk: #ff2e88;
+  --color-volt: #ffe600;
+  --color-acid: #b6ff3d;
+  --color-cyan-pop: #22e6ff;
+  --color-grape: #2a0d45;
+  --color-grape-deep: #1b0730;
+  --color-ink: #120520;
+  --color-paper: #fdf7ff;
+
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-body: var(--font-jakarta), sans-serif;
+
+  --shadow-pop: 6px 6px 0 0 var(--color-ink);
+  --shadow-pop-pink: 6px 6px 0 0 var(--color-punk);
+  --shadow-pop-volt: 6px 6px 0 0 var(--color-volt);
+  --shadow-pop-sm: 4px 4px 0 0 var(--color-ink);
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-wiggle: wiggle 0.45s ease-in-out;
+  --animate-pop-in: pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-spin-slow: spin 9s linear infinite;
+  --animate-spin-slow-reverse: spin 10s linear infinite reverse;
+  --animate-bob: bob 3.2s ease-in-out infinite;
+  --animate-sway: sway 2.6s ease-in-out infinite;
+  --animate-wiggle-loop: wiggle 1.6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg) scale(1.05); }
+    75% { transform: rotate(3deg) scale(1.05); }
+  }
+  @keyframes pop-in {
+    from { opacity: 0; transform: translateY(28px) scale(0.92) rotate(var(--pop-rot, 0deg)); }
+    to { opacity: 1; transform: translateY(0) scale(1) rotate(var(--pop-rot, 0deg)); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes sway {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-grape-deep text-paper font-body antialiased;
+}
+
+/* sticker card base */
+.sticker {
+  @apply border-[3px] border-ink bg-white text-ink rounded-2xl shadow-pop;
+}
+
+/* chunky button */
+.btn-punk {
+  @apply inline-flex items-center justify-center gap-2 border-[3px] border-ink rounded-xl font-display font-bold uppercase tracking-wide
+    px-6 py-3 text-sm transition-all duration-150 cursor-pointer select-none
+    shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px];
+}
+
+/* section heading */
+.section-title {
+  @apply font-display font-extrabold uppercase tracking-tight leading-[0.95];
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+}
+
+/* zigzag divider */
+.zigzag {
+  height: 14px;
+  background:
+    linear-gradient(135deg, var(--color-volt) 25%, transparent 25%) -7px 0 / 14px 14px repeat-x,
+    linear-gradient(225deg, var(--color-volt) 25%, transparent 25%) -7px 0 / 14px 14px repeat-x;
+}
+
+/* highlighter sweep */
+.sweep {
+  background-image: linear-gradient(100deg, transparent 2%, rgba(255,230,0,0.85) 4%, rgba(255,230,0,0.85) 96%, transparent 98%);
+  background-repeat: no-repeat;
+  background-size: 100% 46%;
+  background-position: 0 82%;
+}
+
+/* scroll-driven pop-in */
+.reveal {
+  opacity: 0;
+}
+.reveal.in-view {
+  animation: var(--animate-pop-in);
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.in-view { animation: none; opacity: 1; }
+  .marquee-track { animation: none !important; }
+}
