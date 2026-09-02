@@ -188,7 +188,7 @@ export default function CardOffersExplorer({
                   {/* details */}
                   <div className="min-w-0">
                     <div
-                      className="prose-card text-[15px] font-medium leading-relaxed text-ink/70"
+                      className="prose-card whitespace-pre-line text-[15px] font-medium leading-relaxed text-ink/70"
                       dangerouslySetInnerHTML={{ __html: card.description }}
                     />
 

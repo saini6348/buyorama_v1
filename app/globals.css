@@ -28,6 +28,9 @@
   --animate-bob: bob 3.2s ease-in-out infinite;
   --animate-sway: sway 2.6s ease-in-out infinite;
   --animate-wiggle-loop: wiggle 1.6s ease-in-out infinite;
+  --animate-badge-shake: badge-shake 2s ease-in-out;
+  --animate-badge-swing: badge-swing 3.2s ease-in-out;
+  --animate-badge-land: badge-land 0.35s ease-out;
 
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -49,6 +52,31 @@
   @keyframes sway {
     0%, 100% { transform: rotate(-8deg); }
     50% { transform: rotate(8deg); }
+  }
+  @keyframes badge-shake {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    10% { transform: translateY(-4px) rotate(-2deg); }
+    20% { transform: translateY(3px) rotate(-2deg); }
+    30% { transform: translateY(-3px) rotate(-2deg); }
+    40% { transform: translateY(3px) rotate(-2deg); }
+    50% { transform: translateY(-2px) rotate(-2deg); }
+    60% { transform: translateY(2px) rotate(-2deg); }
+    70% { transform: translateY(-2px) rotate(-2deg); }
+    80% { transform: translateY(1px) rotate(-2deg); }
+    90% { transform: translateY(-1px) rotate(-2deg); }
+  }
+  @keyframes badge-swing {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(9deg); }
+    50% { transform: rotate(-9deg); }
+    75% { transform: rotate(5deg); }
+    90% { transform: rotate(-3deg); }
+  }
+  @keyframes badge-land {
+    0% { transform: scale(1, 1); }
+    40% { transform: scale(1.12, 0.85); }
+    70% { transform: scale(0.95, 1.06); }
+    100% { transform: scale(1, 1); }
   }
 }
 

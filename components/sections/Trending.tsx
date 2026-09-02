@@ -4,6 +4,8 @@ import Reveal from "@/components/Reveal";
 import { ApiCoupon } from "@/lib/types";
 
 export default function Trending({ coupons }: { coupons: ApiCoupon[] }) {
+  if (coupons.length === 0) return null;
+
   return (
     <section className="relative mx-auto max-w-7xl px-4 py-14">
       <div className="pointer-events-none absolute -right-4 top-2 hidden size-14 -rotate-6 place-items-center rounded-2xl border-[3px] border-punk/40 bg-grape/40 text-xl animate-(--animate-sway) sm:grid">

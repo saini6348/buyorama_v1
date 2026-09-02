@@ -6,10 +6,10 @@ export default function CardOffers({ cards }: { cards: ApiCard[] }) {
   return (
     <section className="relative py-14">
       <div className="zigzag rotate-180" />
-      <div className="pointer-events-none absolute -right-6 top-24 hidden size-16 rotate-3 place-items-center rounded-2xl border-[3px] border-cyan-pop/40 bg-grape/40 text-2xl animate-(--animate-spin-slow) lg:grid">
+      <div className="pointer-events-none absolute left-6 top-6 hidden size-14 rotate-3 place-items-center rounded-2xl border-[3px] border-cyan-pop/40 bg-grape/40 text-xl animate-(--animate-spin-slow) lg:grid">
         🚚
       </div>
-      <div className="pointer-events-none absolute -left-8 bottom-16 hidden size-14 -rotate-6 place-items-center rounded-full border-[3px] border-punk/40 bg-grape/40 text-xl animate-(--animate-wiggle-loop) [animation-delay:0.4s] lg:grid">
+      <div className="pointer-events-none absolute left-6 bottom-6 hidden size-12 -rotate-6 place-items-center rounded-full border-[3px] border-punk/40 bg-grape/40 text-lg animate-(--animate-wiggle-loop) [animation-delay:0.4s] lg:grid">
         🎯
       </div>
       <div className="mx-auto max-w-7xl px-4 py-14">
@@ -34,21 +34,25 @@ export default function CardOffers({ cards }: { cards: ApiCard[] }) {
                 className="sticker group flex h-full flex-col gap-3 p-5 transition-all hover:rotate-0 hover:scale-[1.03] hover:shadow-pop-volt"
                 style={{ rotate: `${(i % 2 ? 1 : -1) * 1.5}deg` }}
               >
-                <div className="flex items-start justify-between">
-                  <span className="grid size-14 place-items-center overflow-hidden rounded-2xl border-[3px] border-ink bg-volt text-2xl transition-transform group-hover:animate-wiggle">
-                    {card.logo_url ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={card.logo_url} alt="" className="size-full object-cover" />
-                    ) : (
-                      "💳"
-                    )}
-                  </span>
-                  {card.tags[0] && (
-                    <span className="rotate-3 rounded-md border-2 border-ink bg-punk px-2 py-0.5 font-display text-[10px] font-black uppercase text-white">
-                      {card.tags[0].name}
-                    </span>
+                <div className="-mx-5 -mt-5 overflow-hidden rounded-t-[13px] border-b-[3px] border-ink/10 bg-volt">
+                  {card.logo_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={card.logo_url}
+                      alt=""
+                      className="block h-auto w-full transition-transform group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="grid h-36 place-items-center">
+                      <span className="text-4xl">💳</span>
+                    </div>
                   )}
                 </div>
+                {card.tags[0] && (
+                  <span className="-rotate-3 self-start rounded-md border-2 border-ink bg-punk px-2 py-0.5 font-display text-[10px] font-black uppercase text-white">
+                    {card.tags[0].name}
+                  </span>
+                )}
                 <h3 className="line-clamp-2 font-display text-lg font-extrabold leading-tight">{card.title}</h3>
                 <div
                   className="line-clamp-3 text-sm text-ink/70 [&_div]:inline"
