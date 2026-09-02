@@ -6,6 +6,12 @@ export default function CardOffers({ cards }: { cards: ApiCard[] }) {
   return (
     <section className="relative py-14">
       <div className="zigzag rotate-180" />
+      <div className="pointer-events-none absolute -right-6 top-24 hidden size-16 rotate-3 place-items-center rounded-2xl border-[3px] border-cyan-pop/40 bg-grape/40 text-2xl animate-(--animate-spin-slow) lg:grid">
+        🚚
+      </div>
+      <div className="pointer-events-none absolute -left-8 bottom-16 hidden size-14 -rotate-6 place-items-center rounded-full border-[3px] border-punk/40 bg-grape/40 text-xl animate-(--animate-wiggle-loop) [animation-delay:0.4s] lg:grid">
+        🎯
+      </div>
       <div className="mx-auto max-w-7xl px-4 py-14">
         <Reveal>
           <div className="mb-8 flex items-end justify-between gap-4">

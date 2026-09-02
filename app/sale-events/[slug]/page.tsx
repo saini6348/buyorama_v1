@@ -134,7 +134,7 @@ export default async function SaleEventPage({ params }: { params: Promise<{ slug
                 <div className="px-6 py-5">
                   <h3 className="font-display text-2xl font-extrabold leading-tight md:text-3xl">{f.title}</h3>
                   <div
-                    className="mt-3 text-[15px] font-medium leading-[1.8] text-ink/75 md:text-base [&_a]:text-punk [&_a]:underline"
+                    className="mt-3 whitespace-pre-line text-[15px] font-medium leading-[1.8] text-ink/75 md:text-base [&_a]:text-punk [&_a]:underline"
                     dangerouslySetInnerHTML={{ __html: f.description }}
                   />
                   <div className="mt-6 flex gap-2 text-sm font-bold text-ink/50">

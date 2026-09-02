@@ -5,7 +5,14 @@ import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
 export default function PopularStores({ brands }: { brands: ApiBrand[] }) {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14">
+    <section className="relative mx-auto max-w-7xl px-4 py-14">
+      <div className="pointer-events-none absolute -left-8 top-8 hidden size-16 place-items-center rounded-2xl border-[3px] border-cyan-pop/40 bg-grape/40 text-2xl animate-(--animate-spin-slow-reverse) lg:grid">
+        🎧
+      </div>
+      <div className="pointer-events-none absolute -right-6 bottom-4 hidden size-14 rotate-6 place-items-center rounded-full border-[3px] border-acid/40 bg-grape/40 text-xl animate-(--animate-wiggle-loop) [animation-delay:0.3s] lg:grid">
+        👟
+      </div>
+
       <Reveal>
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="section-title">

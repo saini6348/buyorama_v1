@@ -5,7 +5,14 @@ import { ApiCoupon } from "@/lib/types";
 
 export default function Trending({ coupons }: { coupons: ApiCoupon[] }) {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14">
+    <section className="relative mx-auto max-w-7xl px-4 py-14">
+      <div className="pointer-events-none absolute -right-4 top-2 hidden size-14 -rotate-6 place-items-center rounded-2xl border-[3px] border-punk/40 bg-grape/40 text-xl animate-(--animate-sway) sm:grid">
+        🎁
+      </div>
+      <div className="pointer-events-none absolute -left-6 bottom-6 hidden size-14 rotate-3 place-items-center rounded-full border-[3px] border-volt/40 bg-grape/40 text-xl animate-(--animate-bob) [animation-delay:0.5s] md:grid">
+        🔖
+      </div>
+
       <Reveal>
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="section-title">

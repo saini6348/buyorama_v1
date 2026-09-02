@@ -126,7 +126,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
         <aside className="lg:sticky lg:top-[84px] lg:h-max lg:self-start">
           <div className="rounded-2xl border-[3px] border-ink bg-grape p-5">
             <h2 className="mb-4 font-display text-sm font-black uppercase tracking-widest text-volt">
-              Other Brands 🏬
+              Other Stores 🏬
             </h2>
             <div className="flex flex-col gap-3">
               {others.map((b) => (
@@ -158,8 +158,8 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                 </Link>
               ))}
             </div>
-            <Link href="/coupon-codes" className="btn-punk mt-5 w-full border-ink bg-volt text-ink !py-2 !text-xs">
-              All Coupons
+            <Link href="/stores" className="btn-punk mt-5 w-full border-ink bg-volt text-ink !py-2 !text-xs">
+              All Stores
             </Link>
           </div>
         </aside>
