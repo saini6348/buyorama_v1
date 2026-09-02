@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PromoBadgeFloat from "@/components/PromoBadgeFloat";
 import { ApiBrand } from "@/lib/types";
 import { brandAccent, brandGlyph } from "@/lib/brand-display";
 
@@ -7,7 +8,6 @@ export default function Hero({ brands }: { brands: ApiBrand[] }) {
     <section className="relative overflow-hidden">
       {/* floating deco shapes */}
       <div className="pointer-events-none absolute -left-10 top-16 size-40 rounded-full border-[3px] border-punk/40 animate-(--animate-bob)" />
-      <div className="pointer-events-none absolute right-8 top-40 size-24 rotate-12 rounded-2xl border-[3px] border-volt/50 animate-(--animate-bob) [animation-delay:1.2s]" />
       <div className="pointer-events-none absolute -right-6 top-10 grid size-28 place-items-center rounded-full border-[3px] border-acid/50 animate-(--animate-spin-slow) text-2xl">
         ✂️
       </div>
@@ -30,7 +30,7 @@ export default function Hero({ brands }: { brands: ApiBrand[] }) {
       <div className="pointer-events-none absolute left-[6%] top-28 hidden -rotate-6 size-14 place-items-center rounded-2xl border-[3px] border-cyan-pop/40 bg-grape/40 text-xl animate-(--animate-bob) [animation-delay:0.9s] lg:grid">
         🗄️
       </div>
-      <div className="pointer-events-none absolute right-[4%] top-36 hidden rotate-6 size-16 place-items-center rounded-full border-[3px] border-punk/40 bg-grape/40 text-2xl animate-(--animate-sway) [animation-delay:0.4s] lg:grid">
+      <div className="pointer-events-none absolute right-[4%] top-36 hidden rotate-6 size-16 place-items-center rounded-full border-[3px] border-volt/50 bg-grape/40 text-2xl animate-(--animate-sway) [animation-delay:0.4s] lg:grid">
         📺
       </div>
       <div className="pointer-events-none absolute left-[11%] top-64 hidden rotate-3 size-14 place-items-center rounded-2xl border-[3px] border-volt/40 bg-grape/40 text-xl animate-(--animate-spin-slow-reverse) lg:grid">
@@ -41,9 +41,7 @@ export default function Hero({ brands }: { brands: ApiBrand[] }) {
       </div>
 
       <div className="mx-auto max-w-5xl px-4 pb-16 pt-20 text-center md:pt-28">
-        <span className="inline-block -rotate-2 rounded-lg border-[3px] border-ink bg-acid px-4 py-1.5 font-display text-sm font-black uppercase tracking-widest text-ink shadow-pop-sm">
-          🔥 New · Up to 60% OFF
-        </span>
+        <PromoBadgeFloat />
 
         <h1 className="section-title mt-6">
           WE DO THE <span className="sweep px-1">SEARCHING</span>.

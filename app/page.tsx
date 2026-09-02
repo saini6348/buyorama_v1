@@ -28,7 +28,7 @@ export default async function HomePage() {
   return (
     <>
       <Hero brands={brands} />
-      <Trending coupons={featured.length ? featured : latest.slice(0, 3)} />
+      <Trending coupons={featured.filter((c) => c.featured)} />
       <PopularStores brands={brands} />
       <LatestCoupons coupons={latest.slice(0, 6)} />
       <CardOffers cards={cards} />

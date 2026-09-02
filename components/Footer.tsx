@@ -17,7 +17,7 @@ export default function Footer({ brands, salesEvents }: { brands: ApiBrand[]; sa
   ];
 
   return (
-    <footer className="mt-20 border-t-[3px] border-ink bg-grape text-paper pb-24 md:pb-8">
+    <footer className="relative z-50 mt-20 border-t-[3px] border-ink bg-grape text-paper pb-24 md:pb-8">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-12 sm:grid-cols-3">
         {cols.map((col) => (
           <div key={col.title}>

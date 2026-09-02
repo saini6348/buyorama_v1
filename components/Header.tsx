@@ -10,16 +10,7 @@ export default function Header({ brands, salesEvents }: { brands: ApiBrand[]; sa
   const nav = [
     { label: "Stores", href: "/stores", children: brands.slice(0, 6).map((b) => ({ label: b.name, href: `/brands/${b.slug}` })) },
     { label: "Coupon Codes", href: "/coupon-codes" },
-    {
-      label: "Credit Cards",
-      href: "/credit-card-offers",
-      children: [
-        { label: "All Card Offers", href: "/credit-card-offers" },
-        { label: "Lifetime Free", href: "/credit-card-offers?f=lifetime-free-credit-cards" },
-        { label: "Cashback", href: "/credit-card-offers?f=cashback-credit-cards" },
-        { label: "Airport Lounge", href: "/credit-card-offers?f=airport-lounge-credit-cards" },
-      ],
-    },
+    { label: "Credit Cards", href: "/credit-card-offers" },
     {
       label: "Sale Events",
       href: "/sale-events",

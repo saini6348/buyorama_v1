@@ -6,7 +6,7 @@ export default function Newsletter() {
       <div className="pointer-events-none absolute left-2 top-8 hidden size-14 rotate-6 place-items-center rounded-2xl border-[3px] border-volt/40 bg-grape/40 text-xl animate-(--animate-bob) sm:grid">
         🎉
       </div>
-      <div className="pointer-events-none absolute right-4 bottom-10 hidden size-14 -rotate-3 place-items-center rounded-full border-[3px] border-cyan-pop/40 bg-grape/40 text-xl animate-(--animate-sway) [animation-delay:0.6s] md:grid">
+      <div className="pointer-events-none absolute right-4 bottom-2 hidden size-14 -rotate-3 place-items-center rounded-full border-[3px] border-cyan-pop/40 bg-grape/40 text-xl animate-(--animate-sway) [animation-delay:0.6s] md:grid">
         ⭐
       </div>
 
