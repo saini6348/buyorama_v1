@@ -10,6 +10,9 @@ async function post<T>(path: string, body: Record<string, unknown> = {}): Promis
     method: "POST",
     headers: { "Content-Type": "application/json", "X-Buyorama-Key": API_KEY },
     body: JSON.stringify(body),
+    // Fail fast instead of hanging — a stalled request here can otherwise stall
+    // the whole `next build` static-generation step until it times out at 60s.
+    signal: AbortSignal.timeout(8000),
   });
   const text = await res.text();
   let json: Envelope<T>;
