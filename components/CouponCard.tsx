@@ -18,6 +18,12 @@ export default function CouponCard({ coupon, tilt = -2 }: { coupon: ApiCoupon; t
           🔥 Hot
         </span>
       )}
+      {coupon.image_url && (
+        <div className="-mx-5 -mt-5 mb-4 overflow-hidden rounded-t-[13px] border-b-[3px] border-ink/10 bg-ink/5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={coupon.image_url} alt={coupon.title} className="block h-auto w-full" />
+        </div>
+      )}
       <div className="mb-2 flex items-center gap-2">
         <span
           className="grid size-9 place-items-center overflow-hidden rounded-lg border-2 border-ink text-lg"

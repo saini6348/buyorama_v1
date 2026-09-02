@@ -111,15 +111,11 @@ export default function BrandTabs({
                   <div className="px-6 py-5">
                     <h3 className="font-display text-2xl font-extrabold leading-tight md:text-3xl">{f.title}</h3>
                     <div
-                      className="mt-3 text-[15px] font-medium leading-[1.8] text-ink/75 md:text-base [&_a]:text-punk [&_a]:underline"
+                      className="mt-3 whitespace-pre-line text-[15px] font-medium leading-[1.8] text-ink/75 md:text-base [&_a]:text-punk [&_a]:underline"
                       dangerouslySetInnerHTML={{ __html: f.description }}
                     />
 
                     <div className="mt-6 flex flex-col gap-3 border-t-[3px] border-dashed border-ink/15 pt-4 sm:flex-row sm:items-center">
-                      <div className="flex gap-2 text-sm font-bold text-ink/50">
-                        <span className="rounded-full border-2 border-ink/15 px-3 py-1">👍 Grabbed by many</span>
-                        <span className="rounded-full border-2 border-ink/15 px-3 py-1">🔖 Save</span>
-                      </div>
                       {brand.site_url && (
                         <a
                           href={brand.site_url}

@@ -2,7 +2,14 @@ import Reveal from "@/components/Reveal";
 
 export default function Newsletter() {
   return (
-    <section className="mx-auto max-w-4xl px-4 py-20 text-center">
+    <section className="relative mx-auto max-w-4xl px-4 py-20 text-center">
+      <div className="pointer-events-none absolute left-2 top-8 hidden size-14 rotate-6 place-items-center rounded-2xl border-[3px] border-volt/40 bg-grape/40 text-xl animate-(--animate-bob) sm:grid">
+        🎉
+      </div>
+      <div className="pointer-events-none absolute right-4 bottom-10 hidden size-14 -rotate-3 place-items-center rounded-full border-[3px] border-cyan-pop/40 bg-grape/40 text-xl animate-(--animate-sway) [animation-delay:0.6s] md:grid">
+        ⭐
+      </div>
+
       <Reveal>
         <div className="sticker relative rotate-1 p-8 md:p-12">
           <span className="absolute -top-5 left-6 -rotate-6 rounded-lg border-[3px] border-ink bg-punk px-3 py-1 font-display text-xs font-black uppercase tracking-widest text-white shadow-pop-sm">

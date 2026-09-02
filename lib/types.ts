@@ -14,6 +14,7 @@ export type ApiCoupon = {
   slug: string;
   description: string;
   link: string;
+  image_url: string | null;
   featured: boolean;
   brand: { name: string; slug: string; logo_url: string } | null;
   added_at: string;
