@@ -3,7 +3,7 @@ import Trending from "@/components/sections/Trending";
 import PopularStores from "@/components/sections/PopularStores";
 import LatestCoupons from "@/components/sections/LatestCoupons";
 import CardOffers from "@/components/sections/CardOffers";
-import Newsletter from "@/components/sections/Newsletter";
+import RequestDeals from "@/components/sections/RequestDeals";
 import { getBrands, getCards, getCoupons } from "@/lib/api";
 import { ApiBrand, ApiCard, ApiCoupon } from "@/lib/types";
 
@@ -32,7 +32,7 @@ export default async function HomePage() {
       <PopularStores brands={brands} />
       <LatestCoupons coupons={latest.slice(0, 6)} />
       <CardOffers cards={cards} />
-      <Newsletter />
+      <RequestDeals />
     </>
   );
 }
