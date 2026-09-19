@@ -37,7 +37,7 @@ export default function CouponCard({ coupon, tilt = -2 }: { coupon: ApiCoupon; t
         </span>
         {brand && (
           <Link
-            href={`/brands/${brand.slug}`}
+            href={`/stores/${brand.slug}`}
             className="font-display text-xs font-bold uppercase tracking-widest text-ink/60 hover:text-punk"
           >
             {brand.name}

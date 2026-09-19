@@ -132,7 +132,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
               {others.map((b) => (
                 <Link
                   key={b.slug}
-                  href={`/brands/${b.slug}`}
+                  href={`/stores/${b.slug}`}
                   className="group flex items-center gap-3 rounded-xl border-2 border-transparent p-2 transition-all hover:border-ink hover:bg-white"
                 >
                   <span

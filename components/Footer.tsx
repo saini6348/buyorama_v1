@@ -3,7 +3,7 @@ import { ApiBrand, ApiSalesEvent } from "@/lib/types";
 
 export default function Footer({ brands, salesEvents }: { brands: ApiBrand[]; salesEvents: ApiSalesEvent[] }) {
   const cols = [
-    { title: "Stores", links: brands.slice(0, 6).map((b) => ({ label: b.name, href: `/brands/${b.slug}` })) },
+    { title: "Stores", links: brands.slice(0, 6).map((b) => ({ label: b.name, href: `/stores/${b.slug}` })) },
     {
       title: "Finance",
       links: [
