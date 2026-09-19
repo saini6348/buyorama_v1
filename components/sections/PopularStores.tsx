@@ -24,7 +24,7 @@ export default function PopularStores({ brands }: { brands: ApiBrand[] }) {
         {brands.map((b, i) => (
           <Reveal key={b.slug} delay={i * 70}>
             <Link
-              href={`/brands/${b.slug}`}
+              href={`/stores/${b.slug}`}
               className="sticker group flex flex-col items-center gap-3 p-5 transition-all hover:rotate-0 hover:scale-105 hover:shadow-pop-pink"
               style={{ rotate: `${(i % 3 - 1) * 2}deg` }}
             >

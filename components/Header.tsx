@@ -8,7 +8,7 @@ export default function Header({ brands, salesEvents }: { brands: ApiBrand[]; sa
   const [open, setOpen] = useState<string | null>(null);
 
   const nav = [
-    { label: "Stores", href: "/stores", children: brands.slice(0, 6).map((b) => ({ label: b.name, href: `/brands/${b.slug}` })) },
+    { label: "Stores", href: "/stores", children: brands.slice(0, 6).map((b) => ({ label: b.name, href: `/stores/${b.slug}` })) },
     { label: "Coupon Codes", href: "/coupon-codes" },
     { label: "Credit Cards", href: "/credit-card-offers" },
     {

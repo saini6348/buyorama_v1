@@ -69,7 +69,7 @@ export default function Hero({ brands }: { brands: ApiBrand[] }) {
           {brands.slice(0, 6).map((b, i) => (
             <Link
               key={b.slug}
-              href={`/brands/${b.slug}`}
+              href={`/stores/${b.slug}`}
               className="group flex items-center gap-2 rounded-xl border-[3px] border-ink bg-white px-3 py-2 shadow-pop-sm transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               style={{ rotate: `${[-3, 2, -1, 3, -2, 1][i % 6]}deg` }}
             >
