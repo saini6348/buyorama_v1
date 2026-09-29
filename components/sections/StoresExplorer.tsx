@@ -67,9 +67,9 @@ export default function StoresExplorer({ brands }: { brands: ApiBrand[] }) {
                   )}
                 </span>
                 <span className="font-display text-sm font-extrabold uppercase tracking-wide">{b.name}</span>
-                <span className="rounded-full border-2 border-ink bg-volt px-2 py-0.5 font-display text-[10px] font-black uppercase">
+                {/* <span className="rounded-full border-2 border-ink bg-volt px-2 py-0.5 font-display text-[10px] font-black uppercase">
                   {b.coupon_count} Coupons
-                </span>
+                </span> */}
               </Link>
             </Reveal>
           ))}

@@ -49,8 +49,12 @@ export default function Hero({ brands }: { brands: ApiBrand[] }) {
           YOU DO THE <span className="text-punk">SAVING</span> 💸
         </h1>
 
-        <p className="mx-auto mt-6 max-w-xl text-base font-medium text-paper/70 md:text-lg">
-          Coupons, card offers & sale events from India&apos;s biggest stores — refreshed all day, every day. Zero spam, all steal.
+        <p className="mx-auto mt-6 max-w-full whitespace-nowrap font-display text-[clamp(0.5rem,2.6vw,1.25rem)] font-black uppercase tracking-wide text-volt">
+          Don&apos;t search for deals. Find what just got cheaper. 🔥
+        </p>
+
+        <p className="mx-auto mt-2 max-w-xl text-base font-medium text-paper/70 md:text-lg">
+          Fresh price drops and coupons from your favorite online stores.
         </p>
 
         <form action="/coupon-codes" className="mx-auto mt-8 flex max-w-xl gap-2">

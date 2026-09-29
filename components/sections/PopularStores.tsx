@@ -16,7 +16,7 @@ export default function PopularStores({ brands }: { brands: ApiBrand[] }) {
       <Reveal>
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="section-title">
-            Popular <span className="text-cyan-pop">Stores</span> 🏬
+            Shop price drops <span className="text-cyan-pop">by store</span> 🏬
           </h2>
         </div>
       </Reveal>
@@ -40,9 +40,9 @@ export default function PopularStores({ brands }: { brands: ApiBrand[] }) {
                 )}
               </span>
               <span className="font-display text-sm font-extrabold uppercase tracking-wide">{b.name}</span>
-              <span className="rounded-full border-2 border-ink bg-volt px-2 py-0.5 font-display text-[10px] font-black uppercase">
+              {/* <span className="rounded-full border-2 border-ink bg-volt px-2 py-0.5 font-display text-[10px] font-black uppercase">
                 {b.coupon_count} Coupons
-              </span>
+              </span> */}
             </Link>
           </Reveal>
         ))}

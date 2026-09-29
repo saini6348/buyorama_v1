@@ -90,9 +90,9 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                   <span className="sticker rotate-[-1deg] px-4 py-2 font-display text-xs font-black uppercase">
                     📰 {feeds.length} Feeds
                   </span>
-                  <span className="sticker rotate-[1deg] px-4 py-2 font-display text-xs font-black uppercase">
+                  {/* <span className="sticker rotate-[1deg] px-4 py-2 font-display text-xs font-black uppercase">
                     🎟️ {coupons.length} Coupons
-                  </span>
+                  </span> */}
                 </div>
               </Reveal>
             </div>
